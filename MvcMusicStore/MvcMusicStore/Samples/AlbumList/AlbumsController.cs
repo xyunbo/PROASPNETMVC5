@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Web.Mvc;
+using MvcMusicStore.Models;
+
+namespace MvcMusicStore.Controllers
+{
+    public class AlbumsController : Controller
+    {
+        public ActionResult ListWeaklyTyped()
+        {
+            var albums = new List<Album>();
+            for (int i = 0; i < 10; i++)
+            {
+                albums.Add(new Album { Title = "Album " + i });
+            }
+            ViewBag.Albums = albums;
+            return View();
+        }
+        
+        public ActionResult ListStronglyTyped()
+        {
+            var albums = new List<Album>();
+            for (int i = 0; i < 10; i++) 
+            {
+                albums.Add(new Album { Title = "Album " + i });
+            }
+            return View(albums);
+        }
+
+        //public ActionResult Edit(int id = 0)
+        //{
+        //    Album album = db.Albums.Find(id);
+        //    if (album == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
+        //    ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
+        //    return View(album);
+        //}
+    }
+}
